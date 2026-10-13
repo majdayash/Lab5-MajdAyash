@@ -1,0 +1,311 @@
+{
+  "info": {
+    "_postman_id": "aa3becf5-6ddb-4b48-a673-d919abed1444",
+    "name": "Flask user app",
+    "description": "Requests for the Lab 5 Flask user management REST API (SQLite).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Add user",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/users/add",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "users",
+            "add"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"jondoe@gmail.com\",\n    \"phone\": \"067765434567\",\n    \"address\": \"John Doe Street, Innsbruck\",\n    \"country\": \"Austria\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "description": "Create a new user record"
+      },
+      "response": [
+        {
+          "name": "Add user - success",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/users/add",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "add"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"jondoe@gmail.com\",\n    \"phone\": \"067765434567\",\n    \"address\": \"John Doe Street, Innsbruck\",\n    \"country\": \"Austria\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n    \"address\": \"John Doe Street, Innsbruck\",\n    \"country\": \"Austria\",\n    \"email\": \"jondoe@gmail.com\",\n    \"name\": \"John Doe\",\n    \"phone\": \"067765434567\",\n    \"user_id\": 1\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get all users",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/users",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "users"
+          ]
+        },
+        "description": "Get the list of all users in the database"
+      },
+      "response": [
+        {
+          "name": "Get all users - two users",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/users",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[\n    {\n        \"address\": \"John Doe Street, Innsbruck\",\n        \"country\": \"Austria\",\n        \"email\": \"jondoe@gmail.com\",\n        \"name\": \"John Doe\",\n        \"phone\": \"067765434567\",\n        \"user_id\": 1\n    },\n    {\n        \"address\": \"Hamra Street, Beirut\",\n        \"country\": \"Lebanon\",\n        \"email\": \"majd@example.com\",\n        \"name\": \"Majd Ayash\",\n        \"phone\": \"03123456\",\n        \"user_id\": 2\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Get user by id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/users/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "users",
+            "1"
+          ]
+        },
+        "description": "Get a single user record that matches the id"
+      },
+      "response": [
+        {
+          "name": "Get user 1",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/users/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "1"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n    \"address\": \"John Doe Street, Innsbruck\",\n    \"country\": \"Austria\",\n    \"email\": \"jondoe@gmail.com\",\n    \"name\": \"John Doe\",\n    \"phone\": \"067765434567\",\n    \"user_id\": 1\n}"
+        }
+      ]
+    },
+    {
+      "name": "Update user",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/users/update",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "users",
+            "update"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"user_id\": 1,\n    \"name\": \"John Doe\",\n    \"email\": \"john.doe@gmail.com\",\n    \"phone\": \"067765434567\",\n    \"address\": \"Maria-Theresien-Strasse 1, Innsbruck\",\n    \"country\": \"Austria\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "description": "Update a user record"
+      },
+      "response": [
+        {
+          "name": "Update user 1",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/users/update",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "update"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user_id\": 1,\n    \"name\": \"John Doe\",\n    \"email\": \"john.doe@gmail.com\",\n    \"phone\": \"067765434567\",\n    \"address\": \"Maria-Theresien-Strasse 1, Innsbruck\",\n    \"country\": \"Austria\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n    \"address\": \"Maria-Theresien-Strasse 1, Innsbruck\",\n    \"country\": \"Austria\",\n    \"email\": \"john.doe@gmail.com\",\n    \"name\": \"John Doe\",\n    \"phone\": \"067765434567\",\n    \"user_id\": 1\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete user",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/users/delete/2",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "users",
+            "delete",
+            "2"
+          ]
+        },
+        "description": "Delete a user record"
+      },
+      "response": [
+        {
+          "name": "Delete user 2",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/users/delete/2",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "delete",
+                "2"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n    \"status\": \"User deleted successfully\"\n}"
+        }
+      ]
+    }
+  ]
+}
